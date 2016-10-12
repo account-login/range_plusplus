@@ -2,6 +2,6 @@
 
 Pythonic range() in C++
 
-See examples:
+See examples below or run a test with `make test`
 
 ```C++

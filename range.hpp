@@ -196,6 +196,21 @@ bool float_vec_comp(const vector<FloatType> &v1, const vector<FloatType> &v2) {
     return true;
 }
 
+namespace std {
+    template <typename T>
+    std::ostream &operator << (std::ostream& out, const std::vector<T> &vec) {
+        auto comma = "";
+        out << "vector { ";
+        for (auto &v : vec) {
+            out << comma;
+            out << v;
+            comma = ", ";
+        }
+        out << " }";
+        return out;
+    }
+}
+
 
 TEST_CASE("Test on int") {
     vector<int> expected = { 0, 1, 2, 3, 4 };
@@ -221,12 +236,15 @@ TEST_CASE("Test on double") {
     CHECK((is_same<double, decltype(1.0)>::value));
 
     vector<double> expected = { 0, 1, 2, 3, 4 };
+    CAPTURE(expected);
     CHECK(float_vec_comp(to_vec(range(5.0)), expected));
 
     expected = { 0.5, 1.5, 2.5, 3.5 };
+    CAPTURE(expected);
     CHECK(float_vec_comp(to_vec(range(0.5, 4.0)), expected));
 
     expected = { 0.5, 0.6, 0.7, 0.8, 0.9 };
+    CAPTURE(expected);
     CHECK(float_vec_comp(to_vec(range(0.5, 1.0 - 1e-5, 0.1)), expected));
 }
 
