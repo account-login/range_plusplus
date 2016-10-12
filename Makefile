@@ -25,3 +25,6 @@ examples: build/examples
 
 build/examples: examples.cpp range.hpp
 	$(CXX) $(CXXFLAGS) -o build/examples examples.cpp
+
+update_readme: README.template.md
+	cat README.template.md examples.cpp - <<<'```' >README.md

@@ -4,12 +4,13 @@
 
 
 using namespace std;
+// import range() from namespace tz
 using namespace tz;
 
 
 int main()
 {
-    cout << "simple usages" << endl;
+    cout << "Simple usages" << endl;
 
     // output: 12345
     for (int i : range(5)) {
@@ -36,18 +37,19 @@ int main()
     }
     cout << endl;
 
-    cout << "works beyond numbers" << endl;
+    cout << "Works beyond numbers" << endl;
     vector<int> vec = { 1, 2, 3, 4, 5 };
+
+    cout << "Works with iterator" << endl;
     // output: 54321
-    // iterator
     for (auto it : range(vec.rbegin(), vec.rend())) {
         cout << *it;
     }
     cout << endl;
 
+    cout << "Works with pointer" << endl;
     const int *ptr = vec.data();
     // output: 53
-    // pointer
     for (const int *p : range(ptr + vec.size() - 1, ptr, -2)) {
         cout << *p;
     }
