@@ -237,7 +237,7 @@ TEST_CASE("Test on double") {
 
     vector<double> expected = { 0, 1, 2, 3, 4 };
     CAPTURE(expected);
-    CHECK(float_vec_comp(to_vec(range(5.0)), expected));
+    CHECK(float_vec_comp(to_vec(range(4.99)), expected));
 
     expected = { 0.5, 1.5, 2.5, 3.5 };
     CAPTURE(expected);
