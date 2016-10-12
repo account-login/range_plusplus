@@ -1,7 +1,7 @@
 
 CXXFLAGS += -Wall -g -std=gnu++11
 
-.PHONY : all clean
+.PHONY : all clean test examples update_readme
 
 all: test
 
