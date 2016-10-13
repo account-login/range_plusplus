@@ -101,6 +101,13 @@ TEST_CASE("Test on iterator/pointer") {
     }
     CHECK(ans == expected);
 
+    ans.clear();
+    expected = { 1, 2, 3, 4, 5 };
+    for (auto it : range(vec.begin(), vec.end(), 1)) {
+        ans.push_back(*it);
+    }
+    CHECK(ans == expected);
+
     const int *ptr = vec.data();
     ans.clear();
     expected = { 5, 3 };
