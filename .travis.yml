@@ -22,10 +22,10 @@ matrix:
     - addons:
         apt:
           sources:
-            - llvm-toolchain-precise
+            - llvm-toolchain-trusty-3.8
           packages:
-            - clang-3.7
-      env: COMPILER=clang++-3.7 CXXFLAGS=-O2
+            - clang-3.8
+      env: COMPILER=clang++-3.8 CXXFLAGS=-O2
       script:
         - export CXX="$COMPILER"
         - make test
