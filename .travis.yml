@@ -13,7 +13,7 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-5
-      env: CXX=g++-5 CXXFLAGS=-O2
+      env: COMPILER=g++-5 CXXFLAGS=-O2
       script:
         - make test
         - make examples
@@ -24,7 +24,7 @@ matrix:
             - llvm-toolchain-precise
           packages:
             - clang-3.7
-      env: CXX=clang++-3.7 CXXFLAGS=-O2
+      env: COMPILER=clang++-3.7 CXXFLAGS=-O2
       script:
         - make test
         - make examples
@@ -37,7 +37,7 @@ matrix:
             - g++-5
       before_install:
         - pip install --user cpp-coveralls
-      env: CXX=g++-5 CXXFLAGS="--coverage"
+      env: COMPILER=g++-5 CXXFLAGS="--coverage"
       script: make test
       after_success:
         - coveralls -b . --include range.hpp --gcov-options '\-lp'
