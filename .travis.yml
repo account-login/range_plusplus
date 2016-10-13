@@ -1,24 +1,43 @@
 language: cpp
-compiler:
-    - clang
-    - gcc
-env:
-    - CXXFLAGS=-O2
 
 # Ubuntu 14.04 Trusty support
 sudo: required
 dist: trusty
 
-addons:
-    apt:
-        sources:
-            # add PPAs with more up-to-date toolchains
+matrix:
+  include:
+    # g++
+    - addons:
+        apt:
+          sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise
-        packages:
-        # install toolchains
-            - gcc-5
+          packages:
             - g++-5
+      env: CXX=g++-5 CXXFLAGS=-O2
+      script:
+        - make test
+        - make examples
+    # clang++
+    - addons:
+        apt:
+          sources:
+            - llvm-toolchain-precise
+          packages:
             - clang-3.7
-
-script: make test && make examples
+      env: CXX=clang++-3.7 CXXFLAGS=-O2
+      script:
+        - make test
+        - make examples
+    # g++ coverage
+    - addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+      before_install:
+        - pip install --user cpp-coveralls
+      env: CXX=g++-5 CXXFLAGS="--coverage"
+      script: make test
+      after_success:
+        - coveralls -b . --include range.hpp --gcov-options '\-lp'
