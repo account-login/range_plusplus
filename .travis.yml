@@ -3,9 +3,7 @@ compiler:
     - clang
     - gcc
 env:
-    - CC=g++-5
-    - CXX=clang++-3.7
-    - CXXFLAGS=-O2
+    - CXXFLAGS=-O2 CXX=clang++-3.7 CC=g++-5
 
 # Ubuntu 14.04 Trusty support
 sudo: required
