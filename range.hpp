@@ -1,3 +1,6 @@
+#ifndef RANGE_HPP
+#define RANGE_HPP
+
 #include <iterator>
 #include <functional>
 #include <cassert>
@@ -290,4 +293,6 @@ TEST_CASE("Performance test: range") {
     }
     CHECK(sum != 0);
 }
-#endif
+#endif  // RUN_TEST
+
+#endif  // RANGE_HPP
