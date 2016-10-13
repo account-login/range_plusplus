@@ -21,4 +21,4 @@ addons:
             - g++-5
             - clang-3.7
 
-script: make test
+script: make test && make examples
