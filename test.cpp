@@ -111,7 +111,7 @@ TEST_CASE("Test on iterator/pointer") {
 }
 
 TEST_CASE("Performance test: loop") {
-    int N = numeric_limits<int>::max();
+    int N = numeric_limits<int>::max() / 100;
     int sum = 0;
     for (int i = 0; i < N; i++) {
         sum += i;
@@ -120,7 +120,7 @@ TEST_CASE("Performance test: loop") {
 }
 
 TEST_CASE("Performance test: range") {
-    int N = numeric_limits<int>::max();
+    int N = numeric_limits<int>::max() / 100;
     int sum = 0;
     for (int i : range(N)) {
         sum += i;
