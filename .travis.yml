@@ -5,4 +5,4 @@ compiler:
 env:
     - CXXFLAGS=-O2
 
-scripts: make test
+script: make test
