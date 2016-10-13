@@ -3,6 +3,24 @@ compiler:
     - clang
     - gcc
 env:
+    - CC=g++-5
+    - CXX=clang++-3.7
     - CXXFLAGS=-O2
+
+# Ubuntu 14.04 Trusty support
+sudo: required
+dist: trusty
+
+addons:
+    apt:
+        sources:
+            # add PPAs with more up-to-date toolchains
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise
+        packages:
+        # install toolchains
+            - gcc-5
+            - g++-5
+            - clang-3.7
 
 script: make test

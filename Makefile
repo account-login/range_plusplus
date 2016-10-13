@@ -1,5 +1,5 @@
 
-CXXFLAGS += -Wall -g -std=gnu++11
+CXXFLAGS += -Wall -g -std=c++11
 
 .PHONY : all clean test examples update_readme
 
